@@ -106,6 +106,7 @@ annotations:
         zookeeperRef:
           provided:
             replicas: 3
+        solrHome: "/var/solr/data"
         solrOpts: "-Dsolr.autoSoftCommit.maxTime=10000"
         solrGCTune: "-XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=8"
         backupRepositories:

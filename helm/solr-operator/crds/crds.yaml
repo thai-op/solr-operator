@@ -9849,6 +9849,10 @@ spec:
                 description: Set GC Tuning configuration through GC_TUNE environment
                   variable
                 type: string
+              solrHome:
+                description: Configure SOLR_HOME location for customizing mounting
+                  location default to /var/solr/data
+                type: string
               solrImage:
                 description: ContainerImage defines the fields needed for a Docker
                   repository image. The format here matches the predominant format

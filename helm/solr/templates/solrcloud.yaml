@@ -65,6 +65,9 @@ spec:
   {{- if .Values.solrOptions.gcTune }}
   solrGCTune: {{ .Values.solrOptions.gcTune | quote }}
   {{- end }}
+  {{- if .Values.solrOptions.homeDir }}
+  solrHome: {{ .Values.solrOptions.homeDir | quote }}
+  {{- end }}
   {{- if .Values.solrOptions.javaOpts }}
   solrOpts: {{ .Values.solrOptions.javaOpts | quote }}
   {{- end }}

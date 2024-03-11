@@ -40,6 +40,7 @@ const (
 	DefaultSolrVersion  = "8.11"
 	DefaultSolrJavaMem  = "-Xms1g -Xmx2g"
 	DefaultSolrOpts     = ""
+	DefaultSolrHome     = "/var/solr/data"
 	DefaultSolrLogLevel = "INFO"
 	DefaultSolrGCTune   = ""
 
@@ -106,6 +107,11 @@ type SolrCloudSpec struct {
 	// +optional
 	SolrJavaMem string `json:"solrJavaMem,omitempty"`
 
+	// Configure SOLR_HOME location for customizing mounting location
+	// default to /var/solr/data
+	// +optional
+	SolrHome string `json:"solrHome,omitempty"`
+
 	// You can add common system properties to the SOLR_OPTS environment variable
 	// SolrOpts is the string interface for these optional settings
 	// +optional
@@ -170,6 +176,11 @@ func (spec *SolrCloudSpec) withDefaults(logger logr.Logger) (changed bool) {
 	if spec.SolrOpts == "" && DefaultSolrOpts != "" {
 		changed = true
 		spec.SolrOpts = DefaultSolrOpts
+	}
+
+	if spec.SolrHome == "" && DefaultSolrHome != "" {
+		changed = true
+		spec.SolrHome = DefaultSolrHome
 	}
 
 	if spec.SolrLogLevel == "" && DefaultSolrLogLevel != "" {

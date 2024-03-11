@@ -301,7 +301,7 @@ func GenerateStatefulSet(solrCloud *solr.SolrCloud, solrCloudStatus *solr.SolrCl
 		},
 		{
 			Name:  "SOLR_HOME",
-			Value: "/var/solr/data",
+			Value: solrCloud.Spec.SolrHome,
 		},
 		{
 			// This is the port that jetty will listen on

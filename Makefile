@@ -175,7 +175,7 @@ run: manifests generate fmt vet ## Run a controller from your host
 
 .PHONY: docker-build
 docker-build: ## Build the docker image for the Solr Operator
-	docker build --build-arg GIT_SHA=$(GIT_SHA) . -t solr-operator -f ./build/Dockerfile
+	docker build --build-arg GIT_SHA=$(GIT_SHA) . -t solr-operator -f ./build/Dockerfile --platform linux/amd64
 	docker tag solr-operator $(IMG):$(TAG)
 	docker tag solr-operator $(IMG):latest
 
